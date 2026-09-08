@@ -102,6 +102,14 @@ var processDrop = function(page, currentData, repeating, looped) {
             const itemType = page.data["Item Type"] ? page.data["Item Type"] : category;
             const npc = currentData.npc === "0" ? false : true;
 
+            // Equipment Packs (Explorer Pack, Agent's Pack, etc.) are bundles of other
+            // items, not inventory items in their own right. Their contents are added
+            // individually via the equipment list, so don't create a row for the pack.
+            const itemSubtype = (page.data["Item Subtype"] || page.data["Subtype"] || page.data["Item Sub Type"] || "").toString();
+            if (itemSubtype.toLowerCase() === "equipment pack") {
+                return;
+            }
+
             if (!npc) {
                 let newObject = new Item(page.name)
 
@@ -331,6 +339,7 @@ var processDrop = function(page, currentData, repeating, looped) {
 
             if(ship) {
                 dropSheetAssocitation['npc_piloting_flag'] = 1;
+                dropSheetAssocitation['npc_piloting_base'] = page.data['Piloting Bonus'];
                 dropSheetAssocitation['npc_md'] = page.data['Maneuver Defense'];
                 dropSheetAssocitation['npc_mnv_save'] = page.data['Maneuver Save DC'];
                 dropSheetAssocitation['ship_si'] = page.data['Structural Integrity'];
@@ -1074,8 +1083,12 @@ var processDrop = function(page, currentData, repeating, looped) {
                 const parsedKey = dropFunctions.jsonParse(blob["Custom AC"]);
                 update["custom_ac_flag"] = "1";
                 update["custom_ac_base"] = parsedKey.Base;
-                update["custom_ac_part1"] = parsedKey["Attribute 1"];
-                update["custom_ac_part2"] = parsedKey["Attribute 2"] ? parsedKey["Attribute 2"] : "";
+                // "none" (not "") is the value update_ac() recognises as "no ability here";
+                // an empty string resolved to b["_mod"] === undefined and NaN'd out the whole
+                // custom AC calculation. Classes whose unarmored formula uses a single ability
+                // (10 + Dex) leave "Attribute 2" absent, so this was the common case.
+                update["custom_ac_part1"] = parsedKey["Attribute 1"] ? parsedKey["Attribute 1"] : "none";
+                update["custom_ac_part2"] = parsedKey["Attribute 2"] ? parsedKey["Attribute 2"] : "none";
                 update["custom_ac_shield"] = parsedKey.Shields;
                 if(!looped) {
                     callbacks.push( function() {update_ac();} )
