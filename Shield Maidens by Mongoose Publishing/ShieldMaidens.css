@@ -839,7 +839,7 @@ textarea {
 }
 
 .sm-weapon > input:nth-child(1) {
-    width: auto;
+    width: 110px;
 }
 
 .sm-weapon > input:nth-child(2),
