@@ -2710,6 +2710,17 @@ Lists Selected <input type='number' name='comp_cmbaselistcount'> / 6
   </div>
 </div>
 
+<!---->
+<input type='checkbox' class='toggle' name='attr_toggleeditfightingstyles'>
+<div class='overlay toggler'>
+  <div class='editbox'>
+    <h2>Edit <span name='attr_editfightingstylename'></span> Style</h2>
+
+
+    <button type='action' name='act_editfightingstylecancel' class='fancybutton'>Cancel</button>
+  </div>
+</div>
+
 
 
 
@@ -3188,6 +3199,10 @@ Lists Selected <input type='number' name='comp_cmbaselistcount'> / 6
 
     <div class='prop_pair'>
       <span>
+        <button type='action' name='act_edit_initiative' class='editbutton'>
+          <span class="icon" style="font-family: 'Pictos Custom'; color: rgb(150,150,150);">y</span>
+          <span name='attr_initiative_info' class='stat_info'></span>
+        </button>
         <button type='action' name='act_rollinitiative' class='fancybutton'>Initative
           <span name='attr_initiative'></span>
         </button>
@@ -3224,7 +3239,6 @@ Lists Selected <input type='number' name='comp_cmbaselistcount'> / 6
     </span>
   </fieldset>
 </div>
-
 
 <div class='creatureskills pcframebox'>
   <span class='creatureheading'>Talents</span>
@@ -3263,7 +3277,7 @@ Lists Selected <input type='number' name='comp_cmbaselistcount'> / 6
 
 <div class='creaturenotes pcframebox'>
   <span class='creatureheading'>Notes</span>
-
+  <textarea name='attr_notes'></textarea>
 </div>
 
 <hr>
@@ -7213,6 +7227,8 @@ Lists Selected <input type='number' name='comp_cmbaselistcount'> / 6
   <select name='attr_whispertype' class='fancyselect'>
     <option value=''>Public</option>
     <option value='/w gm'>GM Only</option>
+    <option value='/s '>Secret</option>
+    <option value='/supersecret'>Super Secret</option>
   </select>
 </div>
 
@@ -7340,7 +7356,7 @@ Lists Selected <input type='number' name='comp_cmbaselistcount'> / 6
         </span>
       <span class='prop_prop_plain'>Weight</span><span class='prop_valuef'><input type='checkbox' class='edittoggle'><span class='edittext' name='attr_weight'></span><input class='editactive' type='text' style='flex:1;min-width:100px;' name='attr_weight'></span><span class='iconwrap'><span class='prop_prop_plain'><span class="icon" style="font-family: 'Pictos Custom'; color: rgb(150,150,150);">y</span><span class='skill_info' name='attr_weightallowance_info'></span>Weight allowance</span></span>
 <span class='prop_value' name='attr_weightallowance'></span><span class='prop_prop_plain'>Carried</span><span class='prop_value' name='attr_total_weight'></span><span class='prop_prop_plain'>Load (%)</span><span class='prop_value' name='attr_load'></span><span class='prop_prop_plain'>Enc Penalty</span><span class='prop_value' name='attr_encumberance_penalty'></span><span class='iconwrap'><span class='prop_prop_plain'><span class="icon" style="font-family: 'Pictos Custom'; color: rgb(150,150,150);">y</span><span class='skill_info' name='attr_bmr_info'></span>Base Move (BMR)</span></span>
-<span class='prop_value' name='attr_bmr'></span><span class='prop_prop_plain'>Crawl Pace</span><span class='prop_value' name='attr_bmr_crawl'></span><span class='prop_prop_plain'>Max Pace</span><span class='prop_value' name='attr_maxpace'></span><span class='prop_prop_plain'>Move (Swim)</span><span class='prop_value' name='attr_bmr_swim'></span><span class='prop_prop_plain'>Move (Fly)</span><span class='prop_value' name='attr_bmr_fly'></span><span class='prop_prop_plain'>Move (Climb)</span><span class='prop_value' name='attr_bmr_climb'></span><span class='prop_prop_plain'>Move (Burrow)</span><span class='prop_value' name='attr_bmr_burrow'></span><span class='prop_prop_plain'>Size</span><span class='prop_value' name='attr_size'></span><span class='prop_prop_plain'>Recovery Multiplier</span><span class='prop_value' name='attr_recovery_multiplier'></span><span class='prop_pair_heading'>Feats of Strength</span><span class='prop_prop_plain'>Routine</span><span class='prop_value' name='attr_strfeat_routine'></span><span class='prop_prop_plain'>Easy</span><span class='prop_value' name='attr_strfeat_easy'></span><span class='prop_prop_plain'>Light</span><span class='prop_value' name='attr_strfeat_light'></span><span class='prop_prop_plain'>Medium</span><span class='prop_value' name='attr_strfeat_medium'></span><span class='prop_prop_plain'>Hard</span><span class='prop_value' name='attr_strfeat_hard'></span><span class='prop_prop_plain'>Very Hard</span><span class='prop_value' name='attr_strfeat_veryhard'></span><span class='prop_prop_plain'>Ext. Hard</span><span class='prop_value' name='attr_strfeat_exthard'></span><span class='prop_prop_plain'>Sheer Folly</span><span class='prop_value' name='attr_strfeat_sheerfolly'></span><span class='prop_prop_plain'>Absurd</span><span class='prop_value' name='attr_strfeat_absurd'></span><span class='prop_prop_plain'>Nigh Impossible</span><span class='prop_value' name='attr_strfeat_nighimpossible'></span>
+<span class='prop_value' name='attr_bmr'></span><span class='prop_prop_plain'>Crawl Pace</span><span class='prop_valuef'><span class='prop_value' name='attr_bmr_crawl'></span>&nbsp;per &nbsp;<span class='prop_value' name='attr_actionapperphase'></span>&nbsp;AP</span><span class='prop_prop_plain'>Max Pace</span><span class='prop_value' name='attr_maxpace'></span><span class='prop_prop_plain'>Move (Swim)</span><span class='prop_value' name='attr_bmr_swim'></span><span class='prop_prop_plain'>Move (Fly)</span><span class='prop_value' name='attr_bmr_fly'></span><span class='prop_prop_plain'>Move (Climb)</span><span class='prop_value' name='attr_bmr_climb'></span><span class='prop_prop_plain'>Move (Burrow)</span><span class='prop_value' name='attr_bmr_burrow'></span><span class='prop_prop_plain'>Size</span><span class='prop_value' name='attr_size'></span><span class='prop_prop_plain'>Recovery Multiplier</span><span class='prop_value' name='attr_recovery_multiplier'></span><span class='prop_pair_heading'>Feats of Strength</span><span class='prop_prop_plain'>Routine</span><span class='prop_value' name='attr_strfeat_routine'></span><span class='prop_prop_plain'>Easy</span><span class='prop_value' name='attr_strfeat_easy'></span><span class='prop_prop_plain'>Light</span><span class='prop_value' name='attr_strfeat_light'></span><span class='prop_prop_plain'>Medium</span><span class='prop_value' name='attr_strfeat_medium'></span><span class='prop_prop_plain'>Hard</span><span class='prop_value' name='attr_strfeat_hard'></span><span class='prop_prop_plain'>Very Hard</span><span class='prop_value' name='attr_strfeat_veryhard'></span><span class='prop_prop_plain'>Ext. Hard</span><span class='prop_value' name='attr_strfeat_exthard'></span><span class='prop_prop_plain'>Sheer Folly</span><span class='prop_value' name='attr_strfeat_sheerfolly'></span><span class='prop_prop_plain'>Absurd</span><span class='prop_value' name='attr_strfeat_absurd'></span><span class='prop_prop_plain'>Nigh Impossible</span><span class='prop_value' name='attr_strfeat_nighimpossible'></span>
     </div> <!-- pcframebox zindex 698 -->
 
     </div>
@@ -7588,6 +7604,10 @@ Lists Selected <input type='number' name='comp_cmbaselistcount'> / 6
 
     <div class='prop_pair'>
       <span>
+        <button type='action' name='act_edit_initiative' class='editbutton'>
+          <span class="icon" style="font-family: 'Pictos Custom'; color: rgb(150,150,150);">y</span>
+          <span name='attr_initiative_info' class='stat_info'></span>
+        </button>
         <button type='action' name='act_rollinitiative' class='fancybutton'>Initative
           <span name='attr_initiative'></span>
         </button>
@@ -9465,7 +9485,19 @@ Uses (Lvl/Total) <span name='attr_traps_usecount'></span> / <span name='attr_tra
 
 
         <div style="width:100%; height:12em">
-          <h3>Combat Styles</h3>
+          <h3>Fighting Styles</h3>
+
+          <fieldset class='repeating_fightingstyle'>
+            <b><span name='attr_name'></span></b>
+              (<span name='attr_group'></span>) <!-- group is discipline/combat/battle -->
+              <span name='attr_ranks'></span> ranks<br>
+              <div class='fightingstyle_abilities'>
+              <input type='checkbox' name='attr_abilityinuse1' class='toggle'><span class='toggler'><span name='attr_ability1'></span></span><input type='checkbox' name='attr_abilityinuse2' class='toggle'><span class='toggler'><span name='attr_ability2'></span></span><input type='checkbox' name='attr_abilityinuse3' class='toggle'><span class='toggler'><span name='attr_ability3'></span></span><input type='checkbox' name='attr_abilityinuse4' class='toggle'><span class='toggler'><span name='attr_ability4'></span></span><input type='checkbox' name='attr_abilityinuse5' class='toggle'><span class='toggler'><span name='attr_ability5'></span></span><input type='checkbox' name='attr_abilityinuse6' class='toggle'><span class='toggler'><span name='attr_ability6'></span></span><input type='checkbox' name='attr_abilityinuse7' class='toggle'><span class='toggler'><span name='attr_ability7'></span></span><input type='checkbox' name='attr_abilityinuse8' class='toggle'><span class='toggler'><span name='attr_ability8'></span></span><input type='checkbox' name='attr_abilityinuse9' class='toggle'><span class='toggler'><span name='attr_ability9'></span></span><input type='checkbox' name='attr_abilityinuse10' class='toggle'><span class='toggler'><span name='attr_ability10'></span></span>
+                Unused <span name='attr_spareranks'></span>
+                      <span name='attr_sparerankbonus'></span> OB Bonus
+                <button type='action' class='fancybuttoninline fancybutton' name='act_editfightingstyle'>Edit</button>
+              </div>
+          </fieldset>
         </div>
     </div>
 </div>
@@ -10366,30 +10398,63 @@ Uses (Lvl/Total) <span name='attr_traps_usecount'></span> / <span name='attr_tra
       </ul>
 
     <p><b>Options:</b><br>
-      Token Markers (<span style="font-family: monospace;">option_usetokenmarkers</span>): <span name='attr_option_usetokenmarkers'>(default)</span><br>
-      Use FX (<span style="font-family: monospace;">option_usefx</span>): <span name='attr_option_usefx'>(default)</span><br>
-      DB Quickness Multiplier (<span style="font-family: monospace;">option_dbqumultiplier</span>): <span name='attr_option_dbqumultiplier'>(default)</span><br>
-      Dodge Running Bonus (<span style="font-family: monospace;">option_dodgerunningbonus</span>): <span name='attr_option_dodgerunningbonus'>(default)</span><br>
+      Token Markers (<span style="font-family: monospace;">option_usetokenmarkers</span>): 
+        <select name='attr_option_usetokenmarkers' class='fancyselect smallselect'> 
+          <option value="No token marker updates">no</option>
+          <option value="Token Markers on PC sheets">pc</option>
+          <option value="Token Markers on NPC/Creature sheets">npc</option>
+          <option value="Token Markers on all sheets">all</option>
+        </select>
+        <br>
+
+      Use FX (<span style="font-family: monospace;">option_usefx</span>): 
+        <select name='attr_option_usefx' class='fancyselect smallselect'> 
+          <option value="No FX">no</option>
+          <option value="All Supported FX">all</option>
+        </select>
+        <br>
+
+      DB Quickness Multiplier (<span style="font-family: monospace;">option_dbqumultiplier</span>): 
+        <select name='attr_option_dbqumultiplier' class='fancyselect smallselect'> 
+          <option value="Default (Qux3)">3</option>
+          <option value="Reduced (Qux1)">1</option>
+        </select>
+        <br>
+
+      Dodge Running Bonus (<span style="font-family: monospace;">option_dodgerunningbonus</span>): 
+        <select name='attr_option_dodgerunningbonus' class='fancyselect smallselect'> 
+          <option value="Full Running">full</option>
+          <option value="Rank Only">ranks</option>
+        </select>
+        <br>
+         
       XP Progression Markers (<span style="font-family: monospace;">option_xpprogression</span>): <span name='attr_option_xpprogression'>(default)</span><br>
       Fixed RR Target (50 + 2 * level)
-          (<span style="font-family: monospace;">option_fixedrrbase</span>): <span name='attr_option_fixedrrbase'>(default)</span><br>
+          (<span style="font-family: monospace;">option_fixedrrbase</span>): 
+        <select name='attr_option_fixedrrbase' class='fancyselect smallselect'> 
+          <option value="Default (SCR)">no</option>
+          <option value="Fixed (50)">fixed</option>
+        </select>
+        <br>
+
       Journalled XP (<span style="font-family: monospace;">option_journalledxp</span>):
            <span name='attr_option_journalledxp'>?</span>.<br> 
+
       Allow OverCasting without preperation round
           (<span style="font-family: monospace;">option_allownoprepovercast</span>):
-          <select name="attr_option_allownoprepovercast" class="fancyselect">
+          <select name="attr_option_allownoprepovercast" class="fancyselect smallselect">
             <option value="no">No</option>
             <option value="yes">Yes</option>
           </select><br>
       Zero Power Development ranks bonus:  
         (<span style="font-family: monospace;">option_ppzerorankbonus</span>):
-          <select name="attr_option_ppzerorankbonus" class="fancyselect">
+          <select name="attr_option_ppzerorankbonus" class="fancyselect smallselect">
             <option value="-25">-25 (Default)</option>
             <option value="0">0 (Arcane)</option>
           </select><br>
       Hybrid/Arcane Realm Stat: 
        (<span style="font-family: monospace;">option_averagerealmstats</span>):
-          <select name="attr_option_averagerealmstats" class="fancyselect">
+          <select name="attr_option_averagerealmstats" class="fancyselect smallselect">
             <option value="default">Worst (Core)</option>
             <option value="average">Average (Arcane)</option>
           </select><br>
@@ -10406,6 +10471,8 @@ Uses (Lvl/Total) <span name='attr_traps_usecount'></span> / <span name='attr_tra
 <button type='action' name='act_edittalents' class='fancybutton'>Edit Talents</button>
 <button type='action' name='act_resetworkers' class='fancybutton'>Reset Workers</button>
 <button type='action' name='act_npcgenerate' class='fancybutton'>NPC Generate</button>
+<button type='action' name='act_clearfightingstyles' class='fancybutton'>Reset Fighting Styles</button>
+<button type='action' name='act_clearcombattracker' class='fancybutton'>Clear Combat Tracker</button>
 
 <input type='text' name='attr_npcstring'>
 
@@ -10541,7 +10608,7 @@ Sheet Version: <span name='attr_version'></span>
 
 <br>
 
-Revision bd1cd0b53e132d086b293d533b98270ef70fe84e
+Revision dde268d2051eb8e2d751dcd251833c8e31a81fd4
 
 
 <hr>
@@ -13680,6 +13747,149 @@ RMUSkills.usesClear = function() {
 }
 
 
+
+/**/
+
+// By using a variable, I avoid obvios typos
+const repeatingfightingstyle = "repeating_fightingstyle";
+
+onCheck("change:repeating_specializationdisciplinestyle:ranks", (ev) => {
+    'use strict';
+    // Ranks changed
+    const basename = ev.sourceAttribute.replace("_ranks", "");
+    fightingStyleUpdate("Discipline", basename);
+})
+
+onCheck("remove:repeating_specializationdisciplinestyle", (ev) => {
+    'use strict';
+    console.log("remove", ev);
+});
+onCheck("change:repeating_specializationdisciplinestyle", (ev) => {
+    'use strict';
+    console.log("Generic change?  Maybe delete", ev);
+    // On a delete from a sheet worker it seems we get a change event with no
+    // previousValue and newValue
+    if (Object.hasOwn(ev, "previousValue") || Object.hasOwn(ev, "newValue")) {
+      // Has one.. return
+      return;
+    }
+    fightingStyleDelete(ev.sourceAttribute);
+});
+
+function fightingStyleGetAll(donefn) {
+  'use strict';
+  getSectionIDs(repeatingfightingstyle, (ids) => {
+    let toget = []
+    const fields = ['origprefix', 'name', 'ranks', 'spareranks']
+    ids.forEach((id) => {
+      const prefix = `${repeatingfightingstyle}_${id}_`
+      fields.forEach(field => { toget.push(prefix + field); });
+    });
+    getAttrs(toget, (data) => {
+      const out = {}
+      ids.forEach((id) => {
+	const prefix = `${repeatingfightingstyle}_${id}_`
+	const sinfo = {}
+	fields.forEach(field => { sinfo[field] = data[prefix + field] });
+	out[id] = sinfo
+      });
+      console.log(out, toget, ids);
+      donefn(out)
+    });
+  });
+}
+
+function fightingStyleUpdate(group, basename) {
+  'use strict';
+  // Get the values of the fighting style
+  console.log([`${basename}_ranks`, `${basename}_name`]);
+  getAttrs([`${basename}_ranks`, `${basename}_name`], (data) => {
+      console.log("data", data);
+      fightingStyleGetAll((styleinfo) => {
+	  console.log("All the style info");
+	  // So is this _new_ or old?  If it's new the orig id should match one.
+	  for (const [id, sinfo] of Object.entries(styleinfo)) {
+	    console.log("match", sinfo.origprefix, basename);
+	    if (sinfo.origprefix == basename) {
+	      console.log("found");
+	      return fightingStyleEntryUpdate(basename, data[basename + '_name'],
+		    data[basename + '_ranks'], id);
+	    }
+	  }
+	  
+	  // This is wrong; assumign not found
+	  fightingStyleEntryAdd(basename, data[basename + '_name'], data[basename + '_ranks'], group);
+
+      });
+  });
+}
+
+// New entries are pretty simple: Ust name and ranks.
+// Spare ranks == new eanks
+// bonus is ranks * 2 max 10.
+function fightingStyleEntryAdd(origprefix, name, ranks, group) {
+  'use strict';
+  const rowid = generateRowID();
+  const prefix = repeatingfightingstyle + '_' + rowid + '_';
+  const toset = {}
+  toset[prefix + 'origprefix'] = origprefix;
+  toset[prefix + 'name'] = name;
+  toset[prefix + 'group'] = group;
+  toset[prefix + 'ranks'] = ranks;
+  toset[prefix + 'spareranks'] = ranks;
+  toset[prefix + 'sparerankbonus'] = Math.min(10, ranks * 2);
+  setAttrs(toset);
+}
+
+// New entries are pretty simple: Ust name and ranks.
+// Spare ranks == new eanks
+// bonus is ranks * 2 max 10.
+function fightingStyleEntryUpdate(origprefix, name, ranks, rowid, sinfo) {
+  'use strict';
+  console.log("doing update", origprefix, name, ranks, rowid, sinfo);
+  const prefix = repeatingfightingstyle + '_' + rowid + '_';
+  const toset = {}
+  toset[prefix + 'name'] = name;
+  toset[prefix + 'ranks'] = ranks;
+  toset[prefix + 'sparerankbonus'] = Math.min(10, ranks * 2);
+  setAttrs(toset);
+}
+
+
+function fightingStyleDelete(group, basename) {
+
+}
+
+
+
+// this is a debug function
+function fightingStyleDeleteAll() {
+  'use strict';
+  console.log("Clearing Fighting Styles");
+  getSectionIDs(repeatingfightingstyle, (ids) => {
+      ids.forEach(id => {
+	  removeRepeatingRow(repeatingfightingstyle + '_' + id)
+      });
+      console.log("Fighting Styles Cleared");
+  });
+}
+onCheck("clicked:clearfightingstyles", fightingStyleDeleteAll);
+
+
+
+/**/
+
+onCheck("clicked:repeating_fightingstyle:editfightingstyle", () => {
+  setAttrs({toggleeditfightingstyles : 'on'});
+});
+
+onCheck("clicked:editfightingstylecancel", () => {
+  setAttrs({toggleeditfightingstyles : 'off'});
+})
+
+
+
+/* vim: set sw=2 sts=2 syn=javascript : */
 
 
 
@@ -18769,7 +18979,6 @@ console.log("done cultures");
 	    { "Max Pace", "maxpace" }, -- table 5-3
 	    { "Maneuver Penalty", "manpenalty" }, -- enc penglty = armor penlty
 	    -- More misc stuff
-	    { "Initiative", "initiative" },
 	    { "Power", "pp" },	PP 
 	    { "Size", "size" }, Race
 
@@ -18804,7 +19013,7 @@ frontpage.updateMaxPace = function () { console.log("update Max pace Not Impleme
 frontpage.updateBMR = function () {
   'use strict';
   console.log("Update BMR");
-  getAttrsPending(["bmr_misc", "qu", "sheetselect"], (ev) => {
+  getAttrsPending(["bmr_misc", "qu", "sheetselect", "actionapperphase"], (ev) => {
     // FIXME: These should all be the same
     if (ev.sheetselect == 'creaturesheet') {
       return;
@@ -18816,17 +19025,28 @@ frontpage.updateBMR = function () {
     total += qb + 20;
     log += `${F(qb)}  Quickness / 2\n`
     log += `${T(total)} Total Movement`
-    let bmr_crawl = Math.round((total / 8 * 10)) / 10;
+    let crawldiv = 8;
+    if (ev.actionapperphase) {
+      const apperphase = parseIntDefault(ev.actionapperphase, 1);
+      if (apperphase == 1) {
+	crawldiv = 8;
+      } else if (apperphase == 2) {
+	crawldiv = 4;
+      } else if (apperphase == 4) {
+	crawldiv = 2;
+      } 
+    }
+    let bmr_crawl = Math.round((total / crawldiv * 10)) / 10;
 
     // Swim is 1/4 of BMR normally
     let bmr_swim = Math.round((total / 4 * 10)) / 10;
     let bmr_fly = 0;
     let bmr_climb = Math.round((total / 4 * 10)) / 10;
-    let bmr_tunnel = 0;
+    let bmr_burrow = 0;
 
     setAttrsPending({bmr: total, bmr_info: log, bmr_crawl: bmr_crawl,
 	  bmr_swim: bmr_swim, bmr_fly: bmr_fly, bmr_climb: bmr_climb,
-	  bmr_tunnel: bmr_tunnel});
+	  bmr_burrow: bmr_burrow});
   });
 }
 
@@ -18845,15 +19065,19 @@ frontpage.updateHeight = function() {
 }
 
 frontpage.updateInit = function () { 
-  // FIXME: Not taking into accoutn MM penalty
+  // FIXME: Not taking into account MM penalty,
+  // that is done at roll time (or should be).
   // Initiative is 2d10 + Qu - 1/10 penalty
-  getAttrsPending(["qu", "initiative_misc"], (ev) => {
+  getAttrs(["qu", "initiative_misc"], (ev) => {
       let [total, mlog] = miscBonusTotal(ev.initiative_misc, "");
-      total += parseIntDefault(ev.qu, 0);
-      setAttrsPending({initiative: total});
+      const qu = parseIntDefault(ev.qu, 0);
+      total += qu;
+      mlog += `${F(qu)} Quickness\n`;
+      mlog += `${T(total)} Total Initiative`;
+      setAttrs({initiative: total, initiative_info: mlog});
   });
-}
-onCheck("change:qu", frontpage.updateInit);
+};
+onCheck("change:qu change:initiative_misc", frontpage.updateInit);
 
 frontpage.updateFeatsOfStrength = function () {
   const feats = [
@@ -19072,7 +19296,7 @@ onCheck("change:st", (ev) => {
     checkPending();
 });
 
-onCheck("change:qu change:bmr_misc", (ev) => {
+onCheck("change:qu change:bmr_misc change:actionapperphase", (ev) => {
     addPendingFunction("Derived: Update BMR", frontpage.updateBMR);
     checkPending();
 });
@@ -20194,8 +20418,17 @@ onCheck("clicked:edit_stat", (ev) => {
       { name: "Pot",  field: `${stat}_pot_misc` },
       { name: "Bonus",  field: `${abbr}_misc` }
     ]);
-
 });
+
+onCheck("clicked:edit_initiative", () => {
+  Edit.clearSections();
+
+  Edit.editList("Initiative", { canedit:false },
+  [
+     { name: "Initiative", field: `initiative_misc` },
+  ]);
+});
+
 
 onCheck("clicked:add_specialization", (ev) => {
     const aname = ev.htmlAttributes['data-skill'];
@@ -23612,7 +23845,8 @@ creature.newCreature = function(name, jdata) {
   }
   
   updates.at_torso = updates.at_head = updates.at_arms = updates.at_legs = updates.at;
-  updates.db = cdata.DB;
+  updates.db = cdata.DB || 0;
+  updates.db_misc = `[{"name":"Creature Base DB","value":${updates.db}}]`;
   updates.db_base = cdata.DB; // Base is this - change when people click different defense
   updates.defenses = cdata.defenses || [];
 
@@ -24703,9 +24937,11 @@ onCheck("sheet:opened", (x) => {
 
     messageHackery()
 
+    // Hide stuff that should be hidden
     Edit.hideEdit();
     setAttrs({inventoryaddshow: 'off', toggletalentshow: 'off',
-          togglesleepshow: 'off', togglesleepinjuriesuntreatedshow: 'off'});
+          togglesleepshow: 'off', togglesleepinjuriesuntreatedshow: 'off',
+	  toggleeditfightingstyles: 'off'});
 
     getAttrs(['charactercreated'], init => {
         if (init.charactercreated == 'true') {
@@ -25691,6 +25927,9 @@ for (attr of tracker.mirroredAttributes) {
 
 }
 
+onCheck("clicked:clearcombattracker", () => {
+    setAttrs({pctrackactive: false});
+});
 
 
 
@@ -25700,7 +25939,7 @@ console.log("Tracker sheet loaded");
 
 /**/
 const actionCalls = [
-	'attack primary_action', 'attack secondary_action',
+	'attack primary_action', 'attacksecondary_action',
 	'ap➙melee_action',
 	'ap➙missile_action', 'ap➙clear_action', 'ap➙spell_action',
 	'ap➙perception_action', 'ap➙concentration_action', 'ap➙free_action',

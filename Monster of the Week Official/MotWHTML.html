@@ -171,7 +171,7 @@ on("change:repeating_hunterstory:story", function(e) {
 		<div class="sheet-dieroll-title" align="right">
 			<span data-i18n="hit">Hit</span>: <span data-i18n="advsuccess">Advanced Success</span>!
 		</div>
-		<div>
+		<div class="sheet-dieroll-reminder">
 			<i><span data-i18n="treat-regular">Treat as a regular success if you do not have the advanced improvement for this move.</span></i>
 		</div>
 			{{/rollGreater() Roll 11}}
@@ -198,7 +198,7 @@ on("change:repeating_hunterstory:story", function(e) {
 		<div class="sheet-dieroll-title" align="right">
 			<span data-i18n="failure">Failure</span>.
 		</div>
-		<div>
+		<div class="sheet-dieroll-reminder">
 			<i><span data-i18n="mark-xp-remind">Make sure to mark experience!</span></i>
 		</div>
 			{{/rollLess() Roll 7}}
@@ -31239,7 +31239,7 @@ on("change:repeating_hunterstory:story", function(e) {
                       <button class="sheet-broadcast-button" type="roll" name="roll_Show" value="&amp;{template:motw-moveshare} {{CharName=@{character_name}}} {{movekey=mundane-move8}}" data-i18n-title="send_details_to_chat"></button></span>
                   </div>
                   <input class="sheet-SettingCheck" type="hidden" name="attr_Game-World" value="0"/>
-                  <div class="sheet-move">
+                  <div class="sheet-move sheet-Setting-Bone">
                     <input class="sheet-checkbox" type="checkbox" name="attr_Bone-Mundane-Move1"/><span class="sheet-mainbox"></span><span class="sheet-grayable"><span data-i18n="Handy: When you craft, your repairs restore +1 wear and your new items start with +1 maximum wear. This is in addition to any extras from your roll."></span> 
                       <button class="sheet-broadcast-button" type="roll" name="roll_Show" value="&amp;{template:motw-moveshare} {{CharName=@{character_name}}} {{movekey=Handy: When you craft, your repairs restore +1 wear and your new items start with +1 maximum wear. This is in addition to any extras from your roll.}}" data-i18n-title="send_details_to_chat"></button></span>
                   </div>
