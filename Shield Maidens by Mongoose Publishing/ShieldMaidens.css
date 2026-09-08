@@ -845,7 +845,13 @@ textarea {
 }
 
 .sm-weapon > input:nth-child(1) {
-    width: 110px;
+    width: 170px;
+}
+
+@-moz-document url-prefix() {
+    .sm-weapon > input:nth-child(1) {
+        width: 198px;
+    }
 }
 
 .sm-weapon > input:nth-child(2),
